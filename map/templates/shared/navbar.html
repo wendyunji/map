@@ -1,0 +1,80 @@
+{% load static %}
+<!-- Humberger Begin -->
+<div class="humberger__menu__overlay"></div>
+<div class="humberger__menu__wrapper">
+    <div class="humberger__menu__logo">
+        <a href="#"><img style="width:70px; text-align:center;" src="{% static 'img/logo.png' %}" alt=""></a>
+    </div>
+
+    <nav class="humberger__menu__nav mobile-menu">
+        <ul>
+            <li class="active"><a href="{% url 'mainpage' %}">Home</a></li>
+            <li><a href="">주의사항</a></li>
+            <li><a href="">FAQ</a></li>
+            {%if request.user.is_authenticated%}
+            <li><a href="{% url 'users:mypage' request.user.id%}">Mypage</a></li>
+            <li><a href="{% url 'account_logout' %}">Logout</a></li>
+            {%else%}
+            <li><a href="{% url 'account_login' %}">Login</a></li>
+            <li><a href="{% url 'account_signup' %}">Signup</a></li>
+            {%endif%}
+        </ul>
+    </nav>
+    <div id="mobile-menu-wrap"></div>
+</div>
+<!-- Humberger End -->
+
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div style="text-align:center;" class="header__logo">
+                    <a href="{% url 'mainpage' %}"><img style="width:95px;" src="{% static 'img/logo.png' %}"
+                            alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu" style="text-align: center; margin-top:20px;">
+                    <ul>
+                        <li><a href="{% url 'mainpage' %}">Home</a></li>
+                        <li><a href="">주의사항</a></li>
+
+
+
+                        <li><a href="">FAQ</a>
+                            <ul class="header__menu__dropdown">
+                                <li><a href="">FAQ 목록</a></li>
+                                {%if request.user.is_authenticated%}
+                                <li><a href="">글쓰기</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__menu" style="text-align: center;  margin-top:20px;">
+                    <ul>
+                        <li><a href="">Accounts</a>
+                            <ul class="header__menu__dropdown">
+                                {%if request.user.is_authenticated%}
+                                <li><a href="{% url 'users:mypage' request.user.id%}">Mypage</a></li>
+                                <li><a href="{% url 'account_logout' %}">Logout</a></li>
+                                {%else%}
+                                <li><a href="{% url 'account_login' %}">Login</a></li>
+                                <li><a href="{% url 'account_signup' %}">Signup</a></li>
+                                {%endif%}
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open" style=" margin-top:20px;">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
