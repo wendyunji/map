@@ -12,7 +12,7 @@
             <li><a href="">주의사항</a></li>
             <li><a href="">FAQ</a></li>
             {%if request.user.is_authenticated%}
-            <li><a href="{% url 'users:mypage' request.user.id%}">Mypage</a></li>
+            <li><a href="{% url 'users:mypage'%}">Mypage</a></li>
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
             {%else%}
             <li><a href="{% url 'account_login' %}">Login</a></li>
@@ -60,7 +60,7 @@
                         <li><a href="">Accounts</a>
                             <ul class="header__menu__dropdown">
                                 {%if request.user.is_authenticated%}
-                                <li><a href="{% url 'users:mypage' request.user.id%}">Mypage</a></li>
+                                <li><a href="{% url 'users:mypage' %}">Mypage</a></li>
                                 <li><a href="{% url 'account_logout' %}">Logout</a></li>
                                 {%else%}
                                 <li><a href="{% url 'account_login' %}">Login</a></li>

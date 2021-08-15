@@ -142,6 +142,8 @@ AUTHENTICATION_BACKENDS = [
     "allauth.account.auth_backends.AuthenticationBackend",
 ]
 
+LOGIN_REDIRECT_URL = "/"
+
 # ACCOUNT_FORMS = {'signup': 'users.forms.SignupForm'}
 SITE_ID = 1
 

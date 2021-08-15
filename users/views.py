@@ -19,4 +19,4 @@ def update(request):  # 개인만 쓸 함수
     update_profile.active_sea = request.POST["active_sea"]
     update_profile.save()
 
-    return redirect("users:introduce")
+    return redirect("mainpage")
