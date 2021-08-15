@@ -1,0 +1,13 @@
+<div style="background-size:100%; height:600px;">
+    <div style="width:50%; height:100%; margin:150px auto; ">
+        <form action="{% url 'users:update'%}" method="post" enctype="multipart/form-data" style="text-align:center">
+            {%csrf_token%}
+            <p><h1>개인정보 등록</h1></p>
+            <p>톤 수 : <input type="text" name="tonnage" value="{{user.profile.tonnage}}" required></p>
+            <p>배 종류 : <input type="text" name="ship" value="{{user.profile.ship}}" required></p>
+            <p>활동 영해 : <input type="text" name="active_sea" value="{{user.profile.active_sea}}" required></p>
+            
+            <button type="submit">제출</button>
+        </form>
+    </div>
+</div>
