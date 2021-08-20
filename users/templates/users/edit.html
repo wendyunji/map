@@ -2,12 +2,100 @@
     <div style="width:50%; height:100%; margin:150px auto; ">
         <form action="{% url 'users:update'%}" method="post" enctype="multipart/form-data" style="text-align:center">
             {%csrf_token%}
-            <p><h1>개인정보 등록</h1></p>
-            <p>톤 수 : <input type="text" name="tonnage" value="{{user.profile.tonnage}}" required></p>
-            <p>배 종류 : <input type="text" name="ship" value="{{user.profile.ship}}" required></p>
-            <p>활동 영해 : <input type="text" name="active_sea" value="{{user.profile.active_sea}}" required></p>
-            
+            <p>
+                <h1>개인정보 등록</h1>
+            </p>
+            <div style="text-align: left; padding:10vh;">
+                <p>
+                    <label for="ship">선박 용도 : </label>
+                    <select name="ship" id="ship" required>
+                        <option value="">선택되지 않음</option>
+                        <option value="기타선">기타선</option>
+                        <option value="수상레저기구">수상레저기구</option>
+                        <option value="어선">어선</option>
+                        <option value="여객선">여객선</option>
+                        <option value="예인선">예인선</option>
+                        <option value="유조선">유조선</option>
+                        <option value="화물선">화물선</option>
+                    </select>
+                </p>
+                <p>선박명 : <input type="text" name="ship_name" value="{{user.profile.ship_name}}" required></p>
+                <p>
+                    <label for="tonnage">톤 수 : </label>
+                    <select name="tonnage" id="tonnage" required>
+                        <option value="">선택되지 않음</option>
+                        <option value="1톤미만">1톤미만</option>
+                        <option value="1~2톤미만">1~2톤미만</option>
+                        <option value="2~3톤미만">2~3톤미만</option>
+                        <option value="3~5톤미만">3~5톤미만</option>
+                        <option value="5~10톤미만">5~10톤미만</option>
+                        <option value="10~15톤미만">10~15톤미만</option>
+                        <option value="15~20톤미만">15~20톤미만</option>
+                        <option value="20~25톤미만">20~25톤미만</option>
+                        <option value="25~30톤미만">25~30톤미만</option>
+                        <option value="30~50톤미만">30~50톤미만</option>
+                        <option value="50~100톤미만">50~100톤미만</option>
+                        <option value="100~500톤미만">100~500톤미만</option>
+                        <option value="100~500톤미만">100~500톤미만</option>
+                        <option value="100~500톤미만">100~500톤미만</option>
+                        <option value="100~500톤미만">100~500톤미만</option>
+                        <option value="500~1,000톤미만">500~1,000톤미만</option>
+                        <option value="1000~5000톤미만">1000~5000톤미만</option>
+                        <option value="5,000~10,000톤미만">5,000~10,000톤미만</option>
+                        <option value="10,000~20,000톤미만">10,000~20,000톤미만</option>
+                        <option value="20,000~50,000톤미만">20,000~50,000톤미만</option>
+                        <option value="50,000~100,000톤미만">50,000~100,000톤미만</option>
+                        <option value="100,000톤이상">100,000톤이상</option>
+                        <option value="미상">미상</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="month">월 : </label>
+                    <select name="month" id="month" required>
+                        <option value="">선택되지 않음</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="active_sea">활동 영해 : </label>
+                    <select name="active_sea" id="active_sea" required>
+                        <option value="">선택되지 않음</option>
+                        <option value="개항 및 진입수로">개항 및 진입수로</option>
+                        <option value="남해공해">남해공해</option>
+                        <option value="남해영해">남해영해</option>
+                        <option value="동해공해">동해공해</option>
+                        <option value="동해영해">동해영해</option>
+                        <option value="서해공해">서해공해</option>
+                        <option value="서해영해">서해영해</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="time_f">시간 : </label>
+                    <select name="time_f" id="time_f" required>
+                        <option value="">선택되지 않음</option>
+                        <option value="0-4시">0~4시</option>
+                        <option value="4-8시">4-8시</option>
+                        <option value="8-12시">8-12시</option>
+                        <option value="12-16시">12~16시</option>
+                        <option value="16-20시">16~20시</option>
+                        <option value="20-24시">20시</option>
+                    </select>
+                </p>
             <button type="submit">제출</button>
+
+            </div>
         </form>
     </div>
 </div>

@@ -9,6 +9,9 @@
 </script>
 
 <script>
+    {%for trench in trenches%}
+        
+    {%endfor%}
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng(42.0, 131.50), // 지도의 중심좌표
@@ -21,7 +24,7 @@
     var rectangle = new kakao.maps.Rectangle({
         map: map,
         bounds: new kakao.maps.LatLngBounds(
-            new kakao.maps.LatLng(41.75, 131.25),
+            new kakao.maps.LatLng(41.75, 131.25)#해구,
             new kakao.maps.LatLng(42.25, 131.75)
         ),
         strokeWeight: 4,
