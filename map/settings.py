@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'map.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'safe_map',
+        'NAME': 'for_map',
         'USER': 'root',
         'PASSWORD': 'spiderman1234',
         'HOST': 'localhost',
