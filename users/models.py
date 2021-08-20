@@ -8,9 +8,12 @@ from django.db.models.signals import post_save
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    tonnage = models.IntegerField(null=True) # 톤수
-    ship = models.CharField(null=True,max_length=30) #배 종류
+    ship = models.CharField(null=True,max_length=30) #선박 용도
+    ship_name=models.CharField(null=True,max_length=40) #선박명
+    tonnage = models.CharField(null=True,max_length=30) # 톤수
+    month=models.IntegerField(null=True) #월
     active_sea = models.CharField(null=True,max_length=30) #활동영해
+    time_f=models.CharField(null=True, max_length=20) #시간
 
 
 @receiver(post_save, sender=User)
