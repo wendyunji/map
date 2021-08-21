@@ -14,7 +14,7 @@ class Profile(models.Model):
     month=models.IntegerField(null=True) #월
     active_sea = models.CharField(null=True,max_length=30) #활동영해
     time_f=models.CharField(null=True, max_length=20) #시간
-
+ 
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
