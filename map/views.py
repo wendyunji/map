@@ -5,4 +5,4 @@ def mainpage(request):
 
 
 def test():
-    return redirect("/test")
+     return redirect("mainpage")
