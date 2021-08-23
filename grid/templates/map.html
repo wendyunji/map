@@ -8,11 +8,16 @@
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f827d5dff3b0ce5909fb5a2e514dfaad">
 </script>
 
-<script>
+<script style="width:300px;height:600px;">
+    
+    {%for i in trenches%}
+        
+    var lon={{i.longitude}}
+    var lat={{i.latitude}}
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
         mapOption = {
             center: new kakao.maps.LatLng(42.0, 131.50), // 지도의 중심좌표
-            level: 12, // 지도의 확대 레벨
+            level: 20, // 지도의 확대 레벨
             mapTypeId: kakao.maps.MapTypeId.ROADMAP // 지도종류
         };
     // 지도를 생성한다
@@ -21,8 +26,8 @@
     var rectangle = new kakao.maps.Rectangle({
         map: map,
         bounds: new kakao.maps.LatLngBounds(
-            new kakao.maps.LatLng(41.75, 131.25),
-            new kakao.maps.LatLng(42.25, 131.75)
+            new kakao.maps.LatLng(lat, lon),
+            new kakao.maps.LatLng(lat+0.5, lon+0.5)
         ),
         strokeWeight: 4,
         strokeColor: '#FF00FF',
@@ -46,6 +51,7 @@
             removable: iwRemoveable
         });
     });
+    {%endfor%}
 </script>
 
 {% endblock%}

@@ -3,9 +3,17 @@ from .models import *
 # Create your views here.
 
 def mypage(request):
-    user=request.user
+    if request.user.is_authenticated:
+        user=request.user
+        return render(request,"users/mypage.html",{"user":user})
+    else:
+        return redirect("account_login")
 
-    return render(request,"users/mypage.html",{"user":user})
+
+def myinfo(request):
+    user=request.user
+    return render(request,"users/myinfo.html",{"user":user})
+
 
 def edit(request):  # 개인만 쓸 페이지
     user = request.user
@@ -16,7 +24,14 @@ def update(request):  # 개인만 쓸 함수
     update_profile = request.user.profile
     update_profile.tonnage = request.POST["tonnage"]
     update_profile.ship = request.POST["ship"]
+    update_profile.ship_name = request.POST["ship_name"]
+    update_profile.month = request.POST["month"]
     update_profile.active_sea = request.POST["active_sea"]
+    update_profile.time_f = request.POST["time_f"]
     update_profile.save()
 
-    return redirect("mainpage")
+    return redirect("users:myinfo")
+
+def introduce(request):  # 다른 사람들도 접속하면 볼 수 있는 페이지(iframe)
+    return render(request, "introduce.html")
+   
