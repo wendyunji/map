@@ -38,9 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    #자동실행
+    'django_crontab',
     
     #app
     'grid',
+    'ml',
 
     #user
     'users',
@@ -92,10 +96,10 @@ WSGI_APPLICATION = 'map.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'safe_map',
-        'USER': 'root',
-        'PASSWORD': 'spiderman1234',
-        'HOST': 'localhost',
+        'NAME': 'dongjun-test-db',
+        'USER': 'admin',
+        'PASSWORD': 'hanium123!',
+        'HOST': 'database-1.caua660cnte5.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
@@ -159,3 +163,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "map", "static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+CRONJOBS = [
+    ('*/1 * * * *', 'views.test'),
+    ('*/1 * * * *', 'cron.my_scheduled_job')
+]

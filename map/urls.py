@@ -22,5 +22,6 @@ urlpatterns = [
     path('grid/',include("grid.urls")),
     path('accounts/',include("allauth.urls")),
     path('users/',include("users.urls")),
+    path('ml/',include("ml.urls")),
     path('',mainpage,name="mainpage"),
 ]
