@@ -96,17 +96,10 @@ WSGI_APPLICATION = 'map.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-<<<<<<< HEAD
         'NAME': 'dongjun-test-db',
         'USER': 'admin',
         'PASSWORD': 'hanium123!',
         'HOST': 'database-1.caua660cnte5.ap-northeast-2.rds.amazonaws.com',
-=======
-        'NAME': 'for_map',
-        'USER': 'root',
-        'PASSWORD': 'spiderman1234',
-        'HOST': 'localhost',
->>>>>>> 357cc9a85f1f9b3c9f2cb1ccab8d70f828eed2b9
         'PORT': '3306',
     }
 }
