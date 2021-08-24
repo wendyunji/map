@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'map.urls'
@@ -91,12 +91,13 @@ WSGI_APPLICATION = 'map.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'safe_map',
-        'USER': 'root',
-        'PASSWORD': 'spiderman1234',
-        'HOST': 'localhost',
+       'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'seungsoo-test-db',
+        'USER': 'admin',
+        'PASSWORD': 'hanium123!',
+        'HOST': 'database-1.caua660cnte5.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
+
     }
 }
 

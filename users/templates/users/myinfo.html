@@ -1,0 +1,19 @@
+
+<div style="background-size:100%; height:600px;">
+    <div style="width:50%; height:100%; margin:150px auto; text-align:center;">
+      
+        <p>
+            <h1>개인정보</h1><br>
+        </p>
+        <div style="text-align: left; padding-left:20vh; padding-right:20vh;">
+        <p>선박 용도 :{{user.profile.ship}}</p>
+        <p>선박명 :{{user.profile.ship_name}}</p>
+        <p>톤 수 :{{user.profile.tonnage}}</p>
+        <p>월 :{{user.profile.month}}</p>
+        <p>활동 영해 :{{user.profile.active_sea}}</p>
+        <p>시간 :{{user.profile.time_f}}</p>
+
+        <input type="button" value="내 정보 수정하기" onclick="location.href='{%url 'users:edit'%}'">
+        </div>
+    </div>
+</div>
