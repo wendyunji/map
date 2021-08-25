@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import time
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
+import pandas as p
 
 #selenium 기본
 chrome_driver_path = "/Users/seungsoo/Downloads/chromedriver"
