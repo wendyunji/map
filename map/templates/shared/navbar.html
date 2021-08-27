@@ -3,13 +3,13 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
     <div class="humberger__menu__logo">
-        <a href="#"><img style="width:70px; text-align:center;" src="{% static 'img/logo.png' %}" alt=""></a>
+        <a href="{% url 'mainpage' %}"><img style="width:65px; text-align:center;" src="{% static 'img/logo.png' %}" alt=""></a>
     </div>
 
     <nav class="humberger__menu__nav mobile-menu">
         <ul>
             <li class="active"><a href="{% url 'mainpage' %}">Home</a></li>
-            <li><a href="">주의사항</a></li>
+            <li><a href="{% url 'caution:caution'%}">주의사항</a></li>
             <li><a href="{% url 'community:community'%}">Q&A</a></li>
             {%if request.user.is_authenticated%}
             <li><a href="{% url 'users:mypage'%}">Mypage</a></li>
@@ -29,19 +29,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <div style="text-align:center;" class="header__logo">
-                    <a href="{% url 'mainpage' %}"><img style="width:95px;" src="{% static 'img/logo.png' %}"
+                <div style="text-align:center;" class="header__logo" >
+                    <a href="{% url 'mainpage' %}"><img style="width:65px;" src="{% static 'img/logo.png' %}"
                             alt=""></a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <nav class="header__menu" style="text-align: center; margin-top:20px;">
+            <div class="col-lg-6" >
+                <nav class="header__menu" style="text-align: center; margin-top:10px; ">
+                  
                     <ul>
                         <li><a href="{% url 'mainpage' %}">Home</a></li>
-                        <li><a href="">주의사항</a></li>
-
-
-
+                        <li><a href="{% url 'caution:caution'%}">주의사항</a></li>
                         <li><a href="{% url 'community:community'%}">Q&A</a>
                             <ul class="header__menu__dropdown">
                                 <li><a href="{% url 'community:community'%}">Q&A 목록</a></li>
@@ -55,7 +53,7 @@
                 </nav>
             </div>
             <div class="col-lg-3">
-                <div class="header__menu" style="text-align: center;  margin-top:20px;">
+                <div class="header__menu" style="text-align: center;  margin-top:10px;">
                     <ul>
                         <li><a href="">Accounts</a>
                             <ul class="header__menu__dropdown">

@@ -7,6 +7,7 @@
 <div style="background-size:100%;">
 
     <h2 style="font-family: 'Nanum Gothic Coding', sans-serif;"> 커뮤니티 </h2>
+    <div style="text-align:right;"><a class="btn btn-outline-dark" href="{% url 'community:new'%}">글쓰기</a></div>
     <br>
     <br>
 
@@ -25,13 +26,13 @@
             {%endif%}
         </div>
         <div style="display:flex; flex-direction: column; justify-content: space-around;">
-            <h3><a style="text-decoration:none; color:black; font-family: 'Nanum Gothic Coding', sans-serif;" href="{%url 'community:detail' post.id%}">{{post.title}}</a>
+            <h3><a style="text-decoration:none; color:black; font-family: 'Nanum Gothic Coding', sans-serif; " href="{%url 'community:detail' post.id%}">{{post.title}}</a>
             </h3>
    
             <div style=" display:block;">
-            작성자 : {{post.writer}} 
+            작성자 : {{post.writer}}
             <br>
-            {{post.pub_date}}
+            {{post.pub_date}} 
             </div>
         </div>
     </div>

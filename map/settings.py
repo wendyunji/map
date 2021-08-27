@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     #community
     'community',
 
+    #caution
+    'caution',
+    
     #migrate시 필요
     "django.contrib.sites",
 
