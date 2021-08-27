@@ -10,7 +10,7 @@
         <ul>
             <li class="active"><a href="{% url 'mainpage' %}">Home</a></li>
             <li><a href="">주의사항</a></li>
-            <li><a href="">FAQ</a></li>
+            <li><a href="{% url 'community:community'%}">Q&A</a></li>
             {%if request.user.is_authenticated%}
             <li><a href="{% url 'users:mypage'%}">Mypage</a></li>
             <li><a href="{% url 'account_logout' %}">Logout</a></li>
@@ -42,11 +42,11 @@
 
 
 
-                        <li><a href="">FAQ</a>
+                        <li><a href="{% url 'community:community'%}">Q&A</a>
                             <ul class="header__menu__dropdown">
-                                <li><a href="">FAQ 목록</a></li>
+                                <li><a href="{% url 'community:community'%}">Q&A 목록</a></li>
                                 {%if request.user.is_authenticated%}
-                                <li><a href="">글쓰기</a></li>
+                                <li><a href="{% url 'community:new'%}">글쓰기</a></li>
                                 {% endif %}
                             </ul>
                         </li>
