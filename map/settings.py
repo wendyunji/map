@@ -45,6 +45,12 @@ INSTALLED_APPS = [
     #user
     'users',
 
+    #community
+    'community',
+
+    #caution
+    'caution',
+    
     #migrate시 필요
     "django.contrib.sites",
 
@@ -91,13 +97,12 @@ WSGI_APPLICATION = 'map.wsgi.application'
 
 DATABASES = {
     'default': {
-       'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'seungsoo-test-db',
-        'USER': 'admin',
-        'PASSWORD': 'hanium123!',
-        'HOST': 'database-1.caua660cnte5.ap-northeast-2.rds.amazonaws.com',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'for_map',
+        'USER': 'root',
+        'PASSWORD': 'spiderman1234',
+        'HOST': 'localhost',
         'PORT': '3306',
-
     }
 }
 
@@ -160,3 +165,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "map", "static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = "/media/"
