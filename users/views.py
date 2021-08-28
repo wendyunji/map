@@ -1,3 +1,5 @@
+from os import write
+from community.models import ComPost
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 # Create your views here.
@@ -35,3 +37,8 @@ def update(request):  # 개인만 쓸 함수
 def introduce(request):  # 다른 사람들도 접속하면 볼 수 있는 페이지(iframe)
     return render(request, "introduce.html")
    
+def myQnA(request):
+    myQnA=ComPost.objects.filter(writer=request.user)
+    for i in myQnA:
+        print(i.id)
+    return render(request,"users/myQnA.html",{"myQnA":myQnA})

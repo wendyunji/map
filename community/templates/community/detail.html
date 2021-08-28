@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div style= "margin:0px 200px; margin-top:80px; font-family: 'Noto Sans KR', sans-serif;">
+
+<section>
+	<h1>{{post.title}}</h1>
+    <br>
+    <br>
+    <div style="text-align:right;">
+            작성자 : {{post.writer}} 
+            <br>
+            {{post.pub_date}}
+    </div>
+	{%if post.image%}
+    	<p>사진 : <img src="{{post.image.url}}" alt="사진"></p> <br><br>
+    {%endif%}
+    <p style=" height:200px; word-wrap:break-word; overflow:scroll;">
+	{{post.body}}
+    </p>
+	<br><br><br>
+	{% if user == post.writer %}
+    <a href="{%url 'community:edit' post.id%}" class="btn btn-dark">수정하기</a>
+    <a href="{%url 'community:delete' post.id%}" class="btn btn-dark">삭제하기</a>
+	{%endif%}
+	<hr>
+    <h5>Comments</h5>
+    {%if user.is_authenticated%}
+    <div>
+        <form action="{%url 'community:create_comment' post.id%}" method="POST">
+            {%csrf_token%}
+            <textarea name="content" placeholder="댓글내용입력"></textarea>
+            <input type="submit" value="확인">
+        </form>
+    </div>
+    {%endif%}
+
+    <div>
+        {%for comment in comments%}
+        <div>
+            {% if comment.writer %}
+                {% if 'user' in comment.writer.username %}
+                    작성자 : {{ comment.writer.last_name }} {{ comment.writer.first_name }}
+                {% else %}
+                    작성자 : {{ comment.writer }}
+                {% endif %}
+            {% else %}
+                작성자 : 알 수 없음
+            {% endif %}
+            <br>
+            댓글 내용:{{comment.content}}<br>
+            {%if comment.writer == request.user%}
+                <a href="{%url 'community:edit_comment' comment.id %}" class="btn btn-dark">댓글수정</a>
+                <a href="{%url 'community:delete_comment' comment.id %}" class="btn btn-dark">댓글삭제</a>
+            {%endif%}
+        </div><br>
+        {%endfor%}
+    </div>
+</section>
+</div>
+<br>
+{% endblock %}
