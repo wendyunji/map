@@ -92,7 +92,7 @@ WSGI_APPLICATION = 'map.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'seungsoo-test-db',
+        'NAME': 'dongjun-test-db',
         'USER': 'admin',
         'PASSWORD': 'hanium123!',
         'HOST': 'database-1.caua660cnte5.ap-northeast-2.rds.amazonaws.com',
