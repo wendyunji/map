@@ -1,21 +1,27 @@
 from django.shortcuts import render, redirect, HttpResponse
-from .models import *
+from .models import Trench, mlResult
 # Create your views here.
 
 def show(request):
 
-    trenches=Trench.objects.all()
+    trenches=Trench.objects.raw('select trench.trench_num, trench.longitude, trench.latitude, ml_result.acc from trench, ml_result where (trench.trench_num = ml_result.trench_num)')
+    
+        
+    
 
-    return render(request,'map.html',{"trenches":trenches})
+    return render(request,'map.html',{"trenches":trenches, })
 
 def ifr(request):
     return render(request,'iframemap.html')
 
 def hi(requset):
-    a=Trench.objects.all()
-    for i in a:
-        print(i.trench_num)
-        print(i.longitude)
-        print(i.latitude)
-    return HttpResponse('hi') 
+    
+    b=Trench.objects.extra(tables=['ml_result'], where=['trench.trench_num = ml_result.trench_num']).all()
+    a= Trench.objects.raw('select trench.trench_num, trench.longitude, trench.latitude, ml_result.acc from trench, ml_result where (trench.trench_num = ml_result.trench_num)')
+    print(a.query)
+
+    for x in a:
+        print(x.trench_num)
+        print(x.acc) 
+    return HttpResponse('hi')
     
