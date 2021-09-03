@@ -41,10 +41,17 @@ INSTALLED_APPS = [
     
     #app
     'grid',
+   
 
     #user
     'users',
 
+    #community
+    'community',
+
+    #caution
+    'caution',
+    
     #migrate시 필요
     "django.contrib.sites",
 
@@ -92,12 +99,11 @@ WSGI_APPLICATION = 'map.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'seungsoo-test-db',
+        'NAME': 'dongjun-test-db',
         'USER': 'admin',
         'PASSWORD': 'hanium123!',
         'HOST': 'database-1.caua660cnte5.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
-
     }
 }
 
@@ -160,3 +166,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "map", "static")]
 
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+MEDIA_URL = "/media/"

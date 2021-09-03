@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 from .views import *
 
 urlpatterns = [
@@ -22,5 +24,7 @@ urlpatterns = [
     path('grid/',include("grid.urls")),
     path('accounts/',include("allauth.urls")),
     path('users/',include("users.urls")),
+    path('community/',include("community.urls")), #Q&A
+    path('caution/',include("caution.urls")),
     path('',mainpage,name="mainpage"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

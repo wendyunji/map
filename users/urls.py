@@ -9,5 +9,5 @@ urlpatterns = [
     path("edit/",edit,name="edit"),
     path("update/",update,name="update"),
     path("introduce/", introduce, name="introduce"),
-
+    path("myQnA/",myQnA,name="myQnA"),
 ]
